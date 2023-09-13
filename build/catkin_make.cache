@@ -1,0 +1,2 @@
+main_func:rosserial_python:rosserial_server:tutorial
+-DCATKIN_DEVEL_PREFIX=/home/ditrobotics/tdk_ws/devel -DCMAKE_INSTALL_PREFIX=/home/ditrobotics/tdk_ws/install -G Unix Makefiles
