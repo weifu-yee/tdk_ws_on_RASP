@@ -1,47 +1,79 @@
 #include "map.h"
+#include "cam.h"
 using namespace std;
 
 bool isNodeLast = false;
 bool onNode = false;
 int nodeNow = -1;
-int nodeLast = -1;
+int nodeToGo;
+set<int> numbers;
 
-void Callback(const std_msgs::Bool::ConstPtr& is_node){
-    cout<<"1";
+void nodeCallback(const std_msgs::Bool::ConstPtr& is_node){
+    ROS_INFO("nodeCallback");
     bool isNode = is_node->data;
-    if(isNode != isNodeLast && isNode){
+
+    if(isNode){
         onNode = true;
     }
+    isNode = false;
+    
+    // if(isNode != isNodeLast && isNode){
+    //     onNode = true;
+    // }
     isNodeLast = isNode;
+}
+void numberCallback(const std_msgs::Bool::ConstPtr& the_numbers){
+    ROS_INFO("numberCallback");
+    // numbers.insert();
+    // CAM::what_to_erase(int a, int b);
 }
 
 int main(int argc, char **argv){
     ros::init(argc, argv, "main_func");
     ros::NodeHandle nh;
     ros::Publisher orientation_pub = nh.advertise<std_msgs::Int64>("/cmd_ori", 1);
-    ros::Subscriber node_sub = nh.subscribe("/node_detect",1,Callback);
+    ros::Subscriber node_sub = nh.subscribe("/node_detect",1,nodeCallback);
     ros::Publisher cam_pub = nh.advertise<std_msgs::Int64>("/cmd_cam", 1);
-    ros::Subscriber number_sub = nh.subscribe("/numbers",1,Callback);
+    ros::Subscriber number_sub = nh.subscribe("/numbers",1,numberCallback);
     ros::Rate rate(20); //20Hz
-
-    MAP::buildNode();
-    MAP::initBuildEdge();
     
     std_msgs::Int64 orientation;
     orientation.data = 0;   //front
 
+    MAP::buildNode();
+    MAP::initBuildEdge();
+
+    CAM::openCam();
+
     while(nh.ok()){
         ros::spinOnce();
         if(onNode){
-            if(nodeNow == -1)   nodeNow = 0;
-            else    nodeNow = MAP::adj_list[nodeNow].front();
-            orientation.data = MAP::cmd_ori(nodeNow, nodeLast);
-            // MAP::eraseEdge(u,v);
-            nodeLast = nodeNow;
+            if(nodeNow == -1){
+                CAM::capture_n_identity();
+                nodeNow = 0;
+            }
+
+            auto arr = MAP::adj_list[nodeNow];
+            int max = -1;
+            for(auto it = arr.begin(); it != arr.end(); ++it){
+                max = (max<*it)?*it:max;
+            }
+            if(max == -1){
+                ROS_INFO("NoWay!!");
+                break;
+            }
+            nodeToGo = max;
+
+
+            cout<<nodeNow<<" to "<<nodeToGo<<endl;
+
+            orientation.data = MAP::cmd_ori(nodeToGo, nodeNow);
+            MAP::eraseEdge(nodeToGo, nodeNow);
+            nodeNow = nodeToGo;
+            onNode = false;
         }
         orientation_pub.publish(orientation);
         rate.sleep();
-        cout<<"2";
     }
     
 

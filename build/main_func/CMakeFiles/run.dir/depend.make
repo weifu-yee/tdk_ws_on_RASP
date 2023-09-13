@@ -128,6 +128,7 @@ main_func/CMakeFiles/run.dir/src/map.cpp.o: /opt/ros/noetic/include/std_msgs/Int
 main_func/CMakeFiles/run.dir/src/map.cpp.o: /opt/ros/noetic/include/xmlrpcpp/XmlRpcDecl.h
 main_func/CMakeFiles/run.dir/src/map.cpp.o: /opt/ros/noetic/include/xmlrpcpp/XmlRpcValue.h
 
+main_func/CMakeFiles/run.dir/src/run.cpp.o: /home/ditrobotics/tdk_ws/src/main_func/include/main_func/cam.h
 main_func/CMakeFiles/run.dir/src/run.cpp.o: /home/ditrobotics/tdk_ws/src/main_func/include/main_func/map.h
 main_func/CMakeFiles/run.dir/src/run.cpp.o: /home/ditrobotics/tdk_ws/src/main_func/src/run.cpp
 main_func/CMakeFiles/run.dir/src/run.cpp.o: /opt/ros/noetic/include/ros/advertise_options.h

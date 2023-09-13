@@ -6,6 +6,7 @@
 #include <vector>
 #include <yaml-cpp/yaml.h>
 #include <utility>
+#include <set>
 #include "ros/ros.h"
 #include "std_msgs/Bool.h"
 #include "std_msgs/Int64.h"
@@ -18,7 +19,7 @@ using namespace std;
 
 namespace MAP{
     extern vector<pair<int, pair<int, int>>> node;    //<index, x, y>
-    extern vector<vector<int>> adj_list;     //adjacency_list
+    extern vector<set<int>> adj_list;     //adjacency_list
     void buildNode();
     void initBuildEdge();
     void eraseEdge(int u, int v);

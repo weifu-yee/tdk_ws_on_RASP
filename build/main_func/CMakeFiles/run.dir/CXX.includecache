@@ -6,6 +6,10 @@
 
 #IncludeRegexTransform: 
 
+/home/ditrobotics/tdk_ws/src/main_func/include/main_func/cam.h
+map.h
+/home/ditrobotics/tdk_ws/src/main_func/include/main_func/map.h
+
 /home/ditrobotics/tdk_ws/src/main_func/include/main_func/map.h
 iostream
 -
@@ -17,6 +21,8 @@ yaml-cpp/yaml.h
 -
 utility
 -
+set
+-
 ros/ros.h
 /home/ditrobotics/tdk_ws/src/main_func/include/main_func/ros/ros.h
 std_msgs/Bool.h
@@ -24,9 +30,11 @@ std_msgs/Bool.h
 std_msgs/Int64.h
 /home/ditrobotics/tdk_ws/src/main_func/include/main_func/std_msgs/Int64.h
 
-/home/ditrobotics/tdk_ws/src/main_func/src/map.cpp
+/home/ditrobotics/tdk_ws/src/main_func/src/run.cpp
 map.h
 /home/ditrobotics/tdk_ws/src/main_func/src/map.h
+cam.h
+/home/ditrobotics/tdk_ws/src/main_func/src/cam.h
 
 /opt/ros/noetic/include/ros/advertise_options.h
 ros/forwards.h
