@@ -6,8 +6,19 @@ void CAM::openCam(){
 void CAM::closeCam(){
     cout<<"closeCam"<<endl;
 }
-void CAM::capture_n_identity(){
+void CAM::capture_n_identity(int op){
+    switch(op){
+    case 123:
+        break;
+    case 456:
+        break;
+    case 789:
+        break;
+    default:    break;
+    }
     // ros.sleep(3);
+    //直到確實拍到2個數字為止，設定區間1~3、4~6、7~9
+    // CAM::what_to_erase(int a, int b);
     cout<<"capture_n_identity"<<endl;
 }
 void CAM::what_to_erase(int a, int b){

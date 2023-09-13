@@ -7,6 +7,7 @@ bool onNode = false;
 int nodeNow = -1;
 int nodeToGo;
 set<int> numbers;
+int xNow, xLast;
 
 void nodeCallback(const std_msgs::Bool::ConstPtr& is_node){
     ROS_INFO("nodeCallback");
@@ -16,10 +17,11 @@ void nodeCallback(const std_msgs::Bool::ConstPtr& is_node){
         onNode = true;
     }
     isNode = false;
-    
+
     // if(isNode != isNodeLast && isNode){
     //     onNode = true;
     // }
+
     isNodeLast = isNode;
 }
 void numberCallback(const std_msgs::Bool::ConstPtr& the_numbers){
@@ -49,7 +51,7 @@ int main(int argc, char **argv){
         ros::spinOnce();
         if(onNode){
             if(nodeNow == -1){
-                CAM::capture_n_identity();
+                CAM::capture_n_identity(123);
                 nodeNow = 0;
             }
 
@@ -63,8 +65,11 @@ int main(int argc, char **argv){
                 break;
             }
             nodeToGo = max;
-
-
+            
+            if(MAP::node[nodeNow].second.first == 0 && MAP::node[nodeToGo].second.first == 1)
+                CAM::capture_n_identity(456);
+            if(MAP::node[nodeNow].second.first == 1 && MAP::node[nodeToGo].second.first == 2)
+                CAM::capture_n_identity(789);
             cout<<nodeNow<<" to "<<nodeToGo<<endl;
 
             orientation.data = MAP::cmd_ori(nodeToGo, nodeNow);
