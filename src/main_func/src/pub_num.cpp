@@ -11,7 +11,7 @@ int main(int argc, char **argv)
     while (ros::ok())
     {
         std_msgs::Int32MultiArray multi_array_msg;
-        multi_array_msg.data = {1,3,4,6,7,9};  // Example data
+        multi_array_msg.data = {2,3,4,5,7,9};  // Example data
 
         pub.publish(multi_array_msg);
         rate.sleep();
