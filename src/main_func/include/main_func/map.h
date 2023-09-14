@@ -9,6 +9,7 @@
 #include <set>
 #include "ros/ros.h"
 #include "std_msgs/Bool.h"
+#include "std_msgs/Int8.h"
 #include "std_msgs/Int64.h"
 #include "std_msgs/Int32MultiArray.h"
 

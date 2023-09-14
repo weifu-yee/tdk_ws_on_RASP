@@ -1,0 +1,4 @@
+<launch>
+    <include file = "$(find tutorial)/launch/test.launch" />
+    <node pkg="main_func" type="run" name="run"/>
+</launch>

@@ -13,16 +13,9 @@ void nodeCallback(const std_msgs::Bool::ConstPtr& is_node){
     // ROS_INFO("nodeCallback");
     bool isNode = is_node->data;
 
-    //
-    if(isNode){
+    if(isNode != isNodeLast && isNode){
         onNode = true;
     }
-    isNode = false;
-    //
-
-    // if(isNode != isNodeLast && isNode){
-    //     onNode = true;
-    // }
 
     isNodeLast = isNode;
 }
@@ -39,15 +32,15 @@ ros::Subscriber node_sub;
 ros::Publisher cam_pub;
 ros::Subscriber number_sub;
 
-std_msgs::Int64 orientation;
-std_msgs::Int64 open_o_close;
+std_msgs::Int8 orientation;
+std_msgs::Int8 open_o_close;
 
 int main(int argc, char **argv){
     ros::init(argc, argv, "main_func");
     ros::NodeHandle nh;
-    orientation_pub = nh.advertise<std_msgs::Int64>("/cmd_ori", 1);
+    orientation_pub = nh.advertise<std_msgs::Int8>("/cmd_ori", 1);
     node_sub = nh.subscribe("/node_detect",1,nodeCallback);
-    cam_pub = nh.advertise<std_msgs::Int64>("/cmd_cam", 1);
+    cam_pub = nh.advertise<std_msgs::Int8>("/cmd_cam", 1);
     number_sub = nh.subscribe("/numbers",1,numberCallback);
 
     MAP::buildNode();
@@ -62,6 +55,8 @@ int main(int argc, char **argv){
         ROS_INFO("pass 1st Level!!");
         break;
     }
+    orientation.data = -1;
+    orientation_pub.publish(orientation);
     return 0;
 }
 
@@ -105,7 +100,7 @@ void firstLevel(ros::NodeHandle& nh){
             nodeNow = nodeToGo;
             onNode = false;
         }
-        ROS_INFO("go ahead: %ld",orientation.data);
+        ROS_INFO("go ahead: %d",orientation.data);
         orientation_pub.publish(orientation);
         rate.sleep();
     }

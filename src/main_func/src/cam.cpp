@@ -4,9 +4,9 @@ set<int> CAM::numbers;
 void CAM::capture_n_detect(int op, ros::Publisher& cam_pub, 
         ros::Publisher& orientation_pub, ros::NodeHandle& nh){
     CAM::numbers.clear();
-    std_msgs::Int64 cmd_cam;
+    std_msgs::Int8 cmd_cam;
     cmd_cam.data = 2;
-    std_msgs::Int64 cease;
+    std_msgs::Int8 cease;
     cease.data = -1;
 
     ROS_INFO("cease!!");

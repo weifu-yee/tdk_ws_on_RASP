@@ -9,8 +9,8 @@
 /home/ditrobotics/tdk_ws/src/tutorial/src/tutorial.cpp
 ros/ros.h
 /home/ditrobotics/tdk_ws/src/tutorial/src/ros/ros.h
-std_msgs/Int64.h
-/home/ditrobotics/tdk_ws/src/tutorial/src/std_msgs/Int64.h
+std_msgs/Int8.h
+/home/ditrobotics/tdk_ws/src/tutorial/src/std_msgs/Int8.h
 
 /opt/ros/noetic/include/ros/advertise_options.h
 ros/forwards.h
@@ -660,7 +660,7 @@ ros/forwards.h
 
 /opt/ros/noetic/include/rosconsole/macros_generated.h
 
-/opt/ros/noetic/include/std_msgs/Int64.h
+/opt/ros/noetic/include/std_msgs/Int8.h
 string
 -
 vector
