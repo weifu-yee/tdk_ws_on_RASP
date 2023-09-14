@@ -1,10 +1,10 @@
 #include "map.h"
 #include "cam.h"
 using namespace std;
+using namespace MAP;
 
 bool isNodeLast = false;
 bool onNode = false;
-int nodeNow = -1;
 int nodeToGo;
 int xNow, xLast;
 
@@ -51,7 +51,7 @@ int main(int argc, char **argv){
     // CAM::what_to_erase(1, 2);
     // CAM::what_to_erase(5, 6);
     // CAM::what_to_erase(9, 7);
-    
+
     while(nh.ok()){
         ros::spinOnce();
         if(onNode){

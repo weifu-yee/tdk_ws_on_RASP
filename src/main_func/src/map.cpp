@@ -1,5 +1,6 @@
 #include "map.h"
 
+int MAP::nodeNow = -1;
 vector<pair<int, pair<int, int>>> MAP::node;     //<index, x, y>
 vector<set<int>> MAP::adj_list(num_of_nodes);       //adjacency_list
 

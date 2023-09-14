@@ -17,21 +17,23 @@ void CAM::capture_n_identify(int op, ros::Publisher& publisher, ros::NodeHandle&
     // }
 
     // ros.sleep(3);
-    int a = 0, b = 0;
     bool flag = 0;
+    int _a = 0, _b = 0;
     do{
         ros::spinOnce();
         publisher.publish(cmd_cam);
+        int a = 0, b = 0;
         for(int i = op; i <= op + 2; i++){
             if(numbers.find(i) != numbers.end())
             if(!a){     a = i;      flag = 0;}
             else if(!b){    b = i;    flag = 1;}
             else    flag = 0;
         }
+        _a = a;     _b = b;
         rate.sleep();
-        ROS_INFO("doWhile");
+        ROS_INFO("doWhile %d",MAP::nodeNow);
     }while(!flag && nh.ok());
-    what_to_erase(a, b);
+    what_to_erase(_a, _b);
     //直到確實拍到2個數字為止，設定區間1~3、4~6、7~9
     cout<<"capture_n_identify"<<endl;
 }
@@ -47,8 +49,8 @@ void CAM::what_to_erase(int a, int b){
     };
     eraseBox(a);
     eraseBox(b);
-    if(a == 1 && b == 3 || a == 3 && b == 1)    MAP::eraseEdge(2, 3);
-    if(a == 2 && b == 3 || a == 3 && b == 2)    MAP::eraseEdge(0, 2);
-    if(a == 4 && b == 6 || a == 6 && b == 4)    MAP::eraseEdge(5, 6);
-    if(a == 7 && b == 9 || a == 9 && b == 7)    MAP::eraseEdge(8, 9);
+    if(a == 1 && b == 3)    MAP::eraseEdge(2, 3);
+    if(a == 2 && b == 3)    MAP::eraseEdge(0, 2);
+    if(a == 5 && b == 6 && MAP::nodeNow == 2)    MAP::eraseEdge(5, 6);
+    if(a == 8 && b == 9 && MAP::nodeNow == 5)    MAP::eraseEdge(8, 9);
 }
