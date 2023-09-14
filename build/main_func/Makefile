@@ -198,6 +198,21 @@ rosgraph_msgs_generate_messages_nodejs/fast:
 .PHONY : rosgraph_msgs_generate_messages_nodejs/fast
 
 # Convenience name for target.
+main_func/CMakeFiles/pub_num.dir/rule:
+	cd /home/ditrobotics/tdk_ws/build && $(MAKE) -f CMakeFiles/Makefile2 main_func/CMakeFiles/pub_num.dir/rule
+.PHONY : main_func/CMakeFiles/pub_num.dir/rule
+
+# Convenience name for target.
+pub_num: main_func/CMakeFiles/pub_num.dir/rule
+
+.PHONY : pub_num
+
+# fast build rule for target.
+pub_num/fast:
+	cd /home/ditrobotics/tdk_ws/build && $(MAKE) -f main_func/CMakeFiles/pub_num.dir/build.make main_func/CMakeFiles/pub_num.dir/build
+.PHONY : pub_num/fast
+
+# Convenience name for target.
 main_func/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule:
 	cd /home/ditrobotics/tdk_ws/build && $(MAKE) -f CMakeFiles/Makefile2 main_func/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule
 .PHONY : main_func/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule
@@ -536,6 +551,33 @@ src/map.cpp.s:
 	cd /home/ditrobotics/tdk_ws/build && $(MAKE) -f main_func/CMakeFiles/run.dir/build.make main_func/CMakeFiles/run.dir/src/map.cpp.s
 .PHONY : src/map.cpp.s
 
+src/pub_num.o: src/pub_num.cpp.o
+
+.PHONY : src/pub_num.o
+
+# target to build an object file
+src/pub_num.cpp.o:
+	cd /home/ditrobotics/tdk_ws/build && $(MAKE) -f main_func/CMakeFiles/pub_num.dir/build.make main_func/CMakeFiles/pub_num.dir/src/pub_num.cpp.o
+.PHONY : src/pub_num.cpp.o
+
+src/pub_num.i: src/pub_num.cpp.i
+
+.PHONY : src/pub_num.i
+
+# target to preprocess a source file
+src/pub_num.cpp.i:
+	cd /home/ditrobotics/tdk_ws/build && $(MAKE) -f main_func/CMakeFiles/pub_num.dir/build.make main_func/CMakeFiles/pub_num.dir/src/pub_num.cpp.i
+.PHONY : src/pub_num.cpp.i
+
+src/pub_num.s: src/pub_num.cpp.s
+
+.PHONY : src/pub_num.s
+
+# target to generate assembly for a file
+src/pub_num.cpp.s:
+	cd /home/ditrobotics/tdk_ws/build && $(MAKE) -f main_func/CMakeFiles/pub_num.dir/build.make main_func/CMakeFiles/pub_num.dir/src/pub_num.cpp.s
+.PHONY : src/pub_num.cpp.s
+
 src/run.o: src/run.cpp.o
 
 .PHONY : src/run.o
@@ -574,6 +616,7 @@ help:
 	@echo "... test"
 	@echo "... run"
 	@echo "... rosgraph_msgs_generate_messages_nodejs"
+	@echo "... pub_num"
 	@echo "... rosgraph_msgs_generate_messages_lisp"
 	@echo "... rosgraph_msgs_generate_messages_eus"
 	@echo "... roscpp_generate_messages_py"
@@ -603,6 +646,9 @@ help:
 	@echo "... src/map.o"
 	@echo "... src/map.i"
 	@echo "... src/map.s"
+	@echo "... src/pub_num.o"
+	@echo "... src/pub_num.i"
+	@echo "... src/pub_num.s"
 	@echo "... src/run.o"
 	@echo "... src/run.i"
 	@echo "... src/run.s"

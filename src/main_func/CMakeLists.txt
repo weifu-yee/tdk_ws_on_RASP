@@ -159,6 +159,10 @@ add_executable(run src/run.cpp src/map.cpp src/cam.cpp)
 target_link_libraries(run ${catkin_LIBRARIES} yaml-cpp)
 add_dependencies(run ${catkin_EXPORTED_TARGETS})
 
+add_executable(pub_num src/pub_num.cpp)
+target_link_libraries(pub_num ${catkin_LIBRARIES})
+add_dependencies(pub_num ${catkin_EXPORTED_TARGETS})
+
 #############
 ## Install ##
 #############

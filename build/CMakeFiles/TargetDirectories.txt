@@ -48,6 +48,7 @@
 /home/ditrobotics/tdk_ws/build/main_func/CMakeFiles/test.dir
 /home/ditrobotics/tdk_ws/build/main_func/CMakeFiles/run.dir
 /home/ditrobotics/tdk_ws/build/main_func/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir
+/home/ditrobotics/tdk_ws/build/main_func/CMakeFiles/pub_num.dir
 /home/ditrobotics/tdk_ws/build/main_func/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir
 /home/ditrobotics/tdk_ws/build/main_func/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir
 /home/ditrobotics/tdk_ws/build/main_func/CMakeFiles/roscpp_generate_messages_py.dir

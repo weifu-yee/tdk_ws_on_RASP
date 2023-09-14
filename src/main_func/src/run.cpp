@@ -6,7 +6,6 @@ bool isNodeLast = false;
 bool onNode = false;
 int nodeNow = -1;
 int nodeToGo;
-set<int> numbers;
 int xNow, xLast;
 
 void nodeCallback(const std_msgs::Bool::ConstPtr& is_node){
@@ -24,10 +23,12 @@ void nodeCallback(const std_msgs::Bool::ConstPtr& is_node){
 
     isNodeLast = isNode;
 }
-void numberCallback(const std_msgs::Bool::ConstPtr& the_numbers){
+void numberCallback(const std_msgs::Int32MultiArray::ConstPtr& the_numbers){
     ROS_INFO("numberCallback");
-    // numbers.insert();
-    // CAM::what_to_erase(int a, int b);
+    CAM::numbers.clear();
+    for(auto i:the_numbers->data){
+        CAM::numbers.insert(i);
+    }
 }
 
 int main(int argc, char **argv){
@@ -47,11 +48,15 @@ int main(int argc, char **argv){
 
     CAM::openCam();
 
+    // CAM::what_to_erase(1, 2);
+    // CAM::what_to_erase(5, 6);
+    // CAM::what_to_erase(9, 7);
+    
     while(nh.ok()){
         ros::spinOnce();
         if(onNode){
             if(nodeNow == -1){
-                CAM::capture_n_identity(123);
+                CAM::capture_n_identify(1, cam_pub, nh);
                 nodeNow = 0;
             }
 
@@ -67,9 +72,9 @@ int main(int argc, char **argv){
             nodeToGo = max;
             
             if(MAP::node[nodeNow].second.first == 0 && MAP::node[nodeToGo].second.first == 1)
-                CAM::capture_n_identity(456);
+                CAM::capture_n_identify(4, cam_pub, nh);
             if(MAP::node[nodeNow].second.first == 1 && MAP::node[nodeToGo].second.first == 2)
-                CAM::capture_n_identity(789);
+                CAM::capture_n_identify(7, cam_pub, nh);
             cout<<nodeNow<<" to "<<nodeToGo<<endl;
 
             orientation.data = MAP::cmd_ori(nodeToGo, nodeNow);
@@ -81,7 +86,6 @@ int main(int argc, char **argv){
         rate.sleep();
     }
     
-
     // for(auto i:MAP::node){
     //     cout<<i.first<<" "<<i.second.first<<" "<<i.second.second<<endl;
     // }

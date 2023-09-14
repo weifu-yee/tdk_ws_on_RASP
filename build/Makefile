@@ -324,6 +324,19 @@ rosgraph_msgs_generate_messages_nodejs/fast:
 .PHONY : rosgraph_msgs_generate_messages_nodejs/fast
 
 #=============================================================================
+# Target rules for targets named pub_num
+
+# Build rule for target.
+pub_num: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 pub_num
+.PHONY : pub_num
+
+# fast build rule for target.
+pub_num/fast:
+	$(MAKE) -f main_func/CMakeFiles/pub_num.dir/build.make main_func/CMakeFiles/pub_num.dir/build
+.PHONY : pub_num/fast
+
+#=============================================================================
 # Target rules for targets named rosgraph_msgs_generate_messages_lisp
 
 # Build rule for target.
@@ -1232,6 +1245,7 @@ help:
 	@echo "... _catkin_empty_exported_target"
 	@echo "... run"
 	@echo "... rosgraph_msgs_generate_messages_nodejs"
+	@echo "... pub_num"
 	@echo "... rosgraph_msgs_generate_messages_lisp"
 	@echo "... rosgraph_msgs_generate_messages_eus"
 	@echo "... roscpp_generate_messages_py"
