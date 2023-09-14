@@ -32,7 +32,9 @@ std_msgs/Int64.h
 std_msgs/Int32MultiArray.h
 /home/ditrobotics/tdk_ws/src/main_func/include/main_func/std_msgs/Int32MultiArray.h
 
-/home/ditrobotics/tdk_ws/src/main_func/src/cam.cpp
+/home/ditrobotics/tdk_ws/src/main_func/src/run.cpp
+map.h
+/home/ditrobotics/tdk_ws/src/main_func/src/map.h
 cam.h
 /home/ditrobotics/tdk_ws/src/main_func/src/cam.h
 

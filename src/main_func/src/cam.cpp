@@ -1,27 +1,23 @@
 #include "cam.h"
 set<int> CAM::numbers;
 
-void CAM::openCam(){
-    cout<<"openCam"<<endl;
-}
-void CAM::closeCam(){
-    cout<<"closeCam"<<endl;
-}
-void CAM::capture_n_identify(int op, ros::Publisher& publisher, ros::NodeHandle& nh){
+void CAM::capture_n_detect(int op, ros::Publisher& cam_pub, 
+        ros::Publisher& orientation_pub, ros::NodeHandle& nh){
+    CAM::numbers.clear();
     std_msgs::Int64 cmd_cam;
     cmd_cam.data = 2;
-    ros::Rate rate(20); //20Hz
-    // for(int round = 0; round < 60; round++){
-    //     publisher.publish(cmd_cam);
-    //     rate.sleep();
-    // }
+    std_msgs::Int64 cease;
+    cease.data = -1;
 
-    // ros.sleep(3);
+    ROS_INFO("cease!!");
+
+    ros::Rate rate(20); //20Hz
     bool flag = 0;
     int _a = 0, _b = 0;
-    do{
+    do{     //the capture and detect process
         ros::spinOnce();
-        publisher.publish(cmd_cam);
+        cam_pub.publish(cmd_cam);
+        orientation_pub.publish(cease);
         int a = 0, b = 0;
         for(int i = op; i <= op + 2; i++){
             if(numbers.find(i) != numbers.end())
@@ -31,11 +27,8 @@ void CAM::capture_n_identify(int op, ros::Publisher& publisher, ros::NodeHandle&
         }
         _a = a;     _b = b;
         rate.sleep();
-        ROS_INFO("doWhile %d",MAP::nodeNow);
     }while(!flag && nh.ok());
     what_to_erase(_a, _b);
-    //直到確實拍到2個數字為止，設定區間1~3、4~6、7~9
-    cout<<"capture_n_identify"<<endl;
 }
 void CAM::what_to_erase(int a, int b){
     auto eraseBox = [&](int u){
@@ -51,6 +44,6 @@ void CAM::what_to_erase(int a, int b){
     eraseBox(b);
     if(a == 1 && b == 3)    MAP::eraseEdge(2, 3);
     if(a == 2 && b == 3)    MAP::eraseEdge(0, 2);
-    if(a == 5 && b == 6 && MAP::nodeNow == 2)    MAP::eraseEdge(5, 6);
-    if(a == 8 && b == 9 && MAP::nodeNow == 5)    MAP::eraseEdge(8, 9);
+    if(a == 5 && b == 6 && MAP::nodeNow == 5)    MAP::eraseEdge(5, 6);
+    if(a == 8 && b == 9 && MAP::nodeNow == 8)    MAP::eraseEdge(8, 9);
 }
