@@ -1,8 +1,10 @@
 #include "map.h"
 
 int MAP::nodeNow = -1;
-vector<pair<int, pair<int, int>>> MAP::node;     //<index, x, y>
+vector<pair<int, pair<double, double>>> MAP::node;     //<index, x, y>
 vector<set<int>> MAP::adj_list(num_of_nodes);       //adjacency_list
+// pair<int, int> MAP::reset1;
+// pair<int, int> MAP::reset2;
 
 void MAP::buildNode(){
     std::ifstream file(buildNodeFilePath);
@@ -14,8 +16,18 @@ void MAP::buildNode(){
     for (auto nodeElement : pathConfig) {
         auto node = nodeElement["node"];
         int index = node[0].as<int>();
-        int x = node[1].as<int>();
-        int y = node[2].as<int>();
+        double x = node[1].as<double>();
+        double y = node[2].as<double>();
+        // if(index == -1){
+        //     MAP::reset1.first = x;
+        //     MAP::reset1.second = y;
+        //     continue;
+        // }
+        // if(index == -2){
+        //     MAP::reset2.first = x;
+        //     MAP::reset2.second = y;
+        //     continue;
+        // }
         MAP::node.push_back(make_pair(index, make_pair(x, y)));
     }
 }
@@ -48,10 +60,10 @@ void MAP::eraseEdge(int u, int v){
 }
 int MAP::cmd_ori(int u, int v){
     if(v == -1)  return 0;
-    int ux = MAP::node[u].second.first;
-    int uy = MAP::node[u].second.second;
-    int vx = MAP::node[v].second.first;
-    int vy = MAP::node[v].second.second;
+    double ux = MAP::node[u].second.first;
+    double uy = MAP::node[u].second.second;
+    double vx = MAP::node[v].second.first;
+    double vy = MAP::node[v].second.second;
     if(ux > vx)     return 0;
     if(uy > vy)     return 1;
     if(ux < vx)     return 2;

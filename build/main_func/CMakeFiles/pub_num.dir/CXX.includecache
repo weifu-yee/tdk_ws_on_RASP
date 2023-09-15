@@ -7,10 +7,18 @@
 #IncludeRegexTransform: 
 
 /home/ditrobotics/tdk_ws/src/main_func/src/pub_num.cpp
+iostream
+-
+fstream
+-
+vector
+-
 ros/ros.h
 /home/ditrobotics/tdk_ws/src/main_func/src/ros/ros.h
 std_msgs/Int32MultiArray.h
 /home/ditrobotics/tdk_ws/src/main_func/src/std_msgs/Int32MultiArray.h
+yaml-cpp/yaml.h
+-
 
 /opt/ros/noetic/include/ros/advertise_options.h
 ros/forwards.h

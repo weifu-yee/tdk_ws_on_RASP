@@ -21,8 +21,10 @@ using namespace std;
 
 namespace MAP{
     extern int nodeNow;
-    extern vector<pair<int, pair<int, int>>> node;    //<index, x, y>
+    extern vector<pair<int, pair<double, double>>> node;    //<index, x, y>
     extern vector<set<int>> adj_list;     //adjacency_list
+    // extern pair<int, int> reset1;
+    // extern pair<int, int> reset2;
     void buildNode();
     void initBuildEdge();
     void eraseEdge(int u, int v);

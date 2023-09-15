@@ -96,6 +96,7 @@ pub_num_EXTERNAL_OBJECTS =
 /home/ditrobotics/tdk_ws/devel/lib/main_func/pub_num: /usr/lib/aarch64-linux-gnu/libboost_system.so.1.71.0
 /home/ditrobotics/tdk_ws/devel/lib/main_func/pub_num: /usr/lib/aarch64-linux-gnu/libboost_thread.so.1.71.0
 /home/ditrobotics/tdk_ws/devel/lib/main_func/pub_num: /usr/lib/aarch64-linux-gnu/libconsole_bridge.so.0.4
+/home/ditrobotics/tdk_ws/devel/lib/main_func/pub_num: /usr/lib/aarch64-linux-gnu/libyaml-cpp.so.0.6.2
 /home/ditrobotics/tdk_ws/devel/lib/main_func/pub_num: main_func/CMakeFiles/pub_num.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ditrobotics/tdk_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable /home/ditrobotics/tdk_ws/devel/lib/main_func/pub_num"
 	cd /home/ditrobotics/tdk_ws/build/main_func && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/pub_num.dir/link.txt --verbose=$(VERBOSE)

@@ -6,11 +6,10 @@ using namespace MAP;
 bool isNodeLast = false;
 bool onNode = false;
 int nodeToGo;
-int xNow, xLast = -1;
+double xNow, xLast = -1;
 
 void firstLevel(ros::NodeHandle& nh);
 void nodeCallback(const std_msgs::Bool::ConstPtr& is_node){
-    // ROS_INFO("nodeCallback");
     bool isNode = is_node->data;
 
     if(isNode != isNodeLast && isNode){
@@ -20,7 +19,6 @@ void nodeCallback(const std_msgs::Bool::ConstPtr& is_node){
     isNodeLast = isNode;
 }
 void numberCallback(const std_msgs::Int32MultiArray::ConstPtr& the_numbers){
-    // ROS_INFO("numberCallback");
     CAM::numbers.clear();
     for(auto i:the_numbers->data){
         CAM::numbers.insert(i);
@@ -73,9 +71,9 @@ void firstLevel(ros::NodeHandle& nh){
             
             xNow = MAP::node[nodeNow].second.first;
             
-            if(xNow != xLast && xNow == 1)
+            if(xNow != xLast && xNow == 394.5)
                 CAM::capture_n_detect(4, cam_pub, orientation_pub, nh);
-            if(xNow != xLast && xNow == 2){
+            if(xNow != xLast && xNow == 530){
                 CAM::capture_n_detect(7, cam_pub, orientation_pub, nh);
                 open_o_close.data = 0;
             }
@@ -93,14 +91,15 @@ void firstLevel(ros::NodeHandle& nh){
             }
             nodeToGo = max;
 
-            ROS_INFO("On the node %d, and will go to the node %d",nodeNow,nodeToGo);
+            ROS_INFO("On %d, -> %d",nodeNow,nodeToGo);
 
             orientation.data = MAP::cmd_ori(nodeToGo, nodeNow);
             MAP::eraseEdge(nodeToGo, nodeNow);
             nodeNow = nodeToGo;
             onNode = false;
+            
+            ROS_INFO("go ahead: %d",orientation.data);
         }
-        ROS_INFO("go ahead: %d",orientation.data);
         orientation_pub.publish(orientation);
         rate.sleep();
     }
