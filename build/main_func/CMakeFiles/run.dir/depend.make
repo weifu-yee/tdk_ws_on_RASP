@@ -69,8 +69,12 @@ main_func/CMakeFiles/run.dir/src/cam.cpp.o: /opt/ros/noetic/include/std_msgs/Mul
 main_func/CMakeFiles/run.dir/src/cam.cpp.o: /opt/ros/noetic/include/xmlrpcpp/XmlRpcDecl.h
 main_func/CMakeFiles/run.dir/src/cam.cpp.o: /opt/ros/noetic/include/xmlrpcpp/XmlRpcValue.h
 
+main_func/CMakeFiles/run.dir/src/map.cpp.o: /home/ditrobotics/tdk_ws/src/main_func/include/main_func/cam.h
 main_func/CMakeFiles/run.dir/src/map.cpp.o: /home/ditrobotics/tdk_ws/src/main_func/include/main_func/map.h
+main_func/CMakeFiles/run.dir/src/map.cpp.o: /home/ditrobotics/tdk_ws/src/main_func/include/main_func/odom.h
 main_func/CMakeFiles/run.dir/src/map.cpp.o: /home/ditrobotics/tdk_ws/src/main_func/src/map.cpp
+main_func/CMakeFiles/run.dir/src/map.cpp.o: /opt/ros/noetic/include/geometry_msgs/Twist.h
+main_func/CMakeFiles/run.dir/src/map.cpp.o: /opt/ros/noetic/include/geometry_msgs/Vector3.h
 main_func/CMakeFiles/run.dir/src/map.cpp.o: /opt/ros/noetic/include/ros/advertise_options.h
 main_func/CMakeFiles/run.dir/src/map.cpp.o: /opt/ros/noetic/include/ros/advertise_service_options.h
 main_func/CMakeFiles/run.dir/src/map.cpp.o: /opt/ros/noetic/include/ros/assert.h

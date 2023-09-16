@@ -22,3 +22,6 @@ double Odometry::vel_World2Car(char coor, double Vx_world, double Vy_world){
 	else
 		return Vx_world * cos(theta) + Vy_world * sin(theta);
 }
+
+Odometry ODOM::odometry(0, 0, 0);
+int ODOM::theta = 0;

@@ -1,10 +1,10 @@
 #include "map.h"
+#include "cam.h"
+#include "odom.h"
 
 int MAP::nodeNow = -1;
 vector<pair<int, pair<double, double>>> MAP::node;     //<index, x, y>
 vector<set<int>> MAP::adj_list(num_of_nodes);       //adjacency_list
-// pair<int, int> MAP::reset1;
-// pair<int, int> MAP::reset2;
 
 void MAP::buildNode(){
     std::ifstream file(buildNodeFilePath);
@@ -18,16 +18,16 @@ void MAP::buildNode(){
         int index = node[0].as<int>();
         double x = node[1].as<double>();
         double y = node[2].as<double>();
-        // if(index == -1){
-        //     MAP::reset1.first = x;
-        //     MAP::reset1.second = y;
-        //     continue;
-        // }
-        // if(index == -2){
-        //     MAP::reset2.first = x;
-        //     MAP::reset2.second = y;
-        //     continue;
-        // }
+        if(index == -1 && 1){
+            ODOM::odometry.x = x;
+            ODOM::odometry.y = y;
+            continue;
+        }
+        if(index == -2 && 0){
+            ODOM::odometry.x = x;
+            ODOM::odometry.y = y;
+            continue;
+        }
         MAP::node.push_back(make_pair(index, make_pair(x, y)));
     }
 }
@@ -69,4 +69,14 @@ int MAP::cmd_ori(int u, int v){
     if(ux < vx)     return 2;
     if(uy < vy)     return 3;
     return -1;
+}
+int MAP::dis_of_Odom_n_ToGo(int u){
+    double ux = MAP::node[u].second.first;
+    double uy = MAP::node[u].second.second;
+    double x_diff = ux - ODOM::odometry.x;
+    double y_diff = uy - ODOM::odometry.y;
+    return x_diff + y_diff;
+}
+bool MAP::check_onNode(int u){
+    return dis_of_Odom_n_ToGo(u) < tolerence;
 }

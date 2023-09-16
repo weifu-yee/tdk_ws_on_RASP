@@ -9,17 +9,20 @@
 #define carWidth 0.23704           //m
 #define carLength 0.196          //m
 
+class Odometry{
+private:
+    ros::Time current_time, last_time;
+    double dt;
+public:
+    Odometry(double _x, double _y, double _theta);
+    double x, y, theta;
+    void update(const geometry_msgs::Twist::ConstPtr& ins_vel);
+    double vel_World2Car(char coor, double Vx_world, double Vy_world);
+};
+
 namespace ODOM{
-    class Odometry{
-    private:
-        ros::Time current_time, last_time;
-        double dt;
-    public:
-        Odometry(double _x, double _y, double _theta);
-        double x, y, theta;
-        void update(const geometry_msgs::Twist::ConstPtr& ins_vel);
-        double vel_World2Car(char coor, double Vx_world, double Vy_world);
-    };
+    extern Odometry odometry;
+    extern int theta;
 }
 using namespace ODOM;
 

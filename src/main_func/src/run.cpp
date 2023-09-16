@@ -8,7 +8,7 @@ bool isNodeLast = false;
 bool onNode = false;
 int nodeToGo;
 double xNow, xLast = -1;
-ODOM::Odometry odometry(60, 180, 0);
+// ODOM::Odometry ODOM::odometry(60, 180, 0);
 
 void firstLevel(ros::NodeHandle& nh);
 void nodeCallback(const std_msgs::Bool::ConstPtr& is_node){
@@ -27,11 +27,8 @@ void numberCallback(const std_msgs::Int32MultiArray::ConstPtr& the_numbers){
     }
 }
 void odomCallback(const geometry_msgs::Twist::ConstPtr& ins_vel){
-    // mecanum.odometry.update(ins_vel);
-    odometry.x = ins_vel->angular.x;
-
-    odometry.y = ins_vel->angular.y;
-    odometry.theta = ins_vel->linear.z;
+    odometry.update(ins_vel);
+    ROS_INFO("(%.4lf, %.4lf, %.4lf)",odometry.x, odometry.y, odometry.theta);
 }
 
 ros::Publisher orientation_pub;
@@ -78,44 +75,49 @@ void firstLevel(ros::NodeHandle& nh){
     while(nh.ok() && MAP::nodeNow < 13){
         cam_pub.publish(open_o_close);
         ros::spinOnce();
+
         if(onNode){
-            if(nodeNow == -1){
-                CAM::capture_n_detect(1, cam_pub, orientation_pub, nh);
-                nodeNow = 0;
+            if(!MAP::check_onNode(nodeToGo)){
+                ROS_INFO("Node misjudgment!!");
+                onNode = false;
+                continue;
             }
             
+            if(nodeNow == -1)   CAM::capture_n_detect(1, cam_pub, orientation_pub, nh);
+            nodeNow = nodeToGo;
+
+            odometry.x = MAP::node[nodeNow].second.first;
+            odometry.y = MAP::node[nodeNow].second.second;
+
             xNow = MAP::node[nodeNow].second.first;
-            
             if(xNow != xLast && xNow == 394.5)
                 CAM::capture_n_detect(4, cam_pub, orientation_pub, nh);
             if(xNow != xLast && xNow == 530){
                 CAM::capture_n_detect(7, cam_pub, orientation_pub, nh);
                 open_o_close.data = 0;
             }
-
             xLast = xNow;
 
             auto arr = MAP::adj_list[nodeNow];
             int max = -1;
-            for(auto it = arr.begin(); it != arr.end(); ++it){
-                max = (max<*it)?*it:max;
-            }
+            for(auto it = arr.begin(); it != arr.end(); ++it)   max = (max<*it)?*it:max;
             if(max == -1){
                 ROS_INFO("NoWay!!");
                 return;
             }
             nodeToGo = max;
 
-            ROS_INFO("On %d, -> %d",nodeNow,nodeToGo);
-            ROS_INFO("(%lf, %lf, %lf)",odometry.x, odometry.y, odometry.theta);
-
             orientation.data = MAP::cmd_ori(nodeToGo, nodeNow);
             MAP::eraseEdge(nodeToGo, nodeNow);
-            nodeNow = nodeToGo;
-            onNode = false;
-            
+            // nodeNow = nodeToGo;
+            onNode = false;            
+
+            ROS_INFO("On %d, -> %d",nodeNow,nodeToGo);
             ROS_INFO("go ahead: %d",orientation.data);
+            cout<<endl;
         }
+        
+        if(MAP::dis_of_Odom_n_ToGo(nodeToGo) < decelerationZone)    orientation.data = -2;
         orientation_pub.publish(orientation);
         rate.sleep();
     }
