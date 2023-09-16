@@ -6,6 +6,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/ditrobotics/tdk_ws/src/main_func/src/cam.cpp" "/home/ditrobotics/tdk_ws/build/main_func/CMakeFiles/run.dir/src/cam.cpp.o"
   "/home/ditrobotics/tdk_ws/src/main_func/src/map.cpp" "/home/ditrobotics/tdk_ws/build/main_func/CMakeFiles/run.dir/src/map.cpp.o"
+  "/home/ditrobotics/tdk_ws/src/main_func/src/odom.cpp" "/home/ditrobotics/tdk_ws/build/main_func/CMakeFiles/run.dir/src/odom.cpp.o"
   "/home/ditrobotics/tdk_ws/src/main_func/src/run.cpp" "/home/ditrobotics/tdk_ws/build/main_func/CMakeFiles/run.dir/src/run.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

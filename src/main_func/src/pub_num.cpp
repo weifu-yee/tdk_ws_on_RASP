@@ -36,11 +36,10 @@ int main(int argc, char **argv)
         return 1;
     }
 
+    std_msgs::Int32MultiArray multi_array_msg;
+    multi_array_msg.data = arr;  // Example data
     while (ros::ok())
     {
-        std_msgs::Int32MultiArray multi_array_msg;
-        multi_array_msg.data = arr;  // Example data
-
         pub.publish(multi_array_msg);
         rate.sleep();
     }

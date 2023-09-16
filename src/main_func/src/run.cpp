@@ -1,5 +1,6 @@
 #include "map.h"
 #include "cam.h"
+#include "odom.h"
 using namespace std;
 using namespace MAP;
 
@@ -7,6 +8,7 @@ bool isNodeLast = false;
 bool onNode = false;
 int nodeToGo;
 double xNow, xLast = -1;
+ODOM::Odometry odometry(60, 180, 0);
 
 void firstLevel(ros::NodeHandle& nh);
 void nodeCallback(const std_msgs::Bool::ConstPtr& is_node){
@@ -24,11 +26,19 @@ void numberCallback(const std_msgs::Int32MultiArray::ConstPtr& the_numbers){
         CAM::numbers.insert(i);
     }
 }
+void odomCallback(const geometry_msgs::Twist::ConstPtr& ins_vel){
+    // mecanum.odometry.update(ins_vel);
+    odometry.x = ins_vel->angular.x;
+
+    odometry.y = ins_vel->angular.y;
+    odometry.theta = ins_vel->linear.z;
+}
 
 ros::Publisher orientation_pub;
 ros::Subscriber node_sub;
 ros::Publisher cam_pub;
 ros::Subscriber number_sub;
+ros::Subscriber odom_sub;
 
 std_msgs::Int8 orientation;
 std_msgs::Int8 open_o_close;
@@ -40,6 +50,7 @@ int main(int argc, char **argv){
     node_sub = nh.subscribe("/node_detect",1,nodeCallback);
     cam_pub = nh.advertise<std_msgs::Int8>("/cmd_cam", 1);
     number_sub = nh.subscribe("/numbers",1,numberCallback);
+    odom_sub = nh.subscribe("/realspeed",1,odomCallback);
 
     MAP::buildNode();
     MAP::initBuildEdge();
@@ -47,6 +58,10 @@ int main(int argc, char **argv){
     orientation.data = 0;   //front
     open_o_close.data = 1;
 
+
+    ROS_INFO("On %d, -> %d",nodeNow,nodeToGo);
+    ROS_INFO("(%lf, %lf, %lf)",odometry.x, odometry.y, odometry.theta);
+    ROS_INFO("go ahead: %d",orientation.data);
 
     while(nh.ok()){
         firstLevel(nh);
@@ -92,6 +107,7 @@ void firstLevel(ros::NodeHandle& nh){
             nodeToGo = max;
 
             ROS_INFO("On %d, -> %d",nodeNow,nodeToGo);
+            ROS_INFO("(%lf, %lf, %lf)",odometry.x, odometry.y, odometry.theta);
 
             orientation.data = MAP::cmd_ori(nodeToGo, nodeNow);
             MAP::eraseEdge(nodeToGo, nodeNow);

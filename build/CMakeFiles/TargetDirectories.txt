@@ -97,15 +97,13 @@
 /home/ditrobotics/tdk_ws/build/tutorial/CMakeFiles/install.dir
 /home/ditrobotics/tdk_ws/build/tutorial/CMakeFiles/list_install_components.dir
 /home/ditrobotics/tdk_ws/build/tutorial/CMakeFiles/test.dir
-/home/ditrobotics/tdk_ws/build/tutorial/CMakeFiles/main.dir
-/home/ditrobotics/tdk_ws/build/tutorial/CMakeFiles/PID_controller.dir
+/home/ditrobotics/tdk_ws/build/tutorial/CMakeFiles/comm_vel.dir
+/home/ditrobotics/tdk_ws/build/tutorial/CMakeFiles/navi_tracking.dir
 /home/ditrobotics/tdk_ws/build/tutorial/CMakeFiles/rebuild_cache.dir
-/home/ditrobotics/tdk_ws/build/tutorial/CMakeFiles/data_process.dir
 /home/ditrobotics/tdk_ws/build/tutorial/CMakeFiles/tf2_msgs_generate_messages_eus.dir
 /home/ditrobotics/tdk_ws/build/tutorial/CMakeFiles/sensor_msgs_generate_messages_eus.dir
 /home/ditrobotics/tdk_ws/build/tutorial/CMakeFiles/debug.dir
 /home/ditrobotics/tdk_ws/build/tutorial/CMakeFiles/actionlib_generate_messages_lisp.dir
-/home/ditrobotics/tdk_ws/build/tutorial/CMakeFiles/tutorial.dir
 /home/ditrobotics/tdk_ws/build/tutorial/CMakeFiles/nav_msgs_generate_messages_py.dir
 /home/ditrobotics/tdk_ws/build/tutorial/CMakeFiles/sensor_msgs_generate_messages_py.dir
 /home/ditrobotics/tdk_ws/build/tutorial/CMakeFiles/edit_cache.dir

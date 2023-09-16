@@ -168,49 +168,34 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-tutorial/CMakeFiles/main.dir/rule:
-	cd /home/ditrobotics/tdk_ws/build && $(MAKE) -f CMakeFiles/Makefile2 tutorial/CMakeFiles/main.dir/rule
-.PHONY : tutorial/CMakeFiles/main.dir/rule
+tutorial/CMakeFiles/comm_vel.dir/rule:
+	cd /home/ditrobotics/tdk_ws/build && $(MAKE) -f CMakeFiles/Makefile2 tutorial/CMakeFiles/comm_vel.dir/rule
+.PHONY : tutorial/CMakeFiles/comm_vel.dir/rule
 
 # Convenience name for target.
-main: tutorial/CMakeFiles/main.dir/rule
+comm_vel: tutorial/CMakeFiles/comm_vel.dir/rule
 
-.PHONY : main
+.PHONY : comm_vel
 
 # fast build rule for target.
-main/fast:
-	cd /home/ditrobotics/tdk_ws/build && $(MAKE) -f tutorial/CMakeFiles/main.dir/build.make tutorial/CMakeFiles/main.dir/build
-.PHONY : main/fast
+comm_vel/fast:
+	cd /home/ditrobotics/tdk_ws/build && $(MAKE) -f tutorial/CMakeFiles/comm_vel.dir/build.make tutorial/CMakeFiles/comm_vel.dir/build
+.PHONY : comm_vel/fast
 
 # Convenience name for target.
-tutorial/CMakeFiles/PID_controller.dir/rule:
-	cd /home/ditrobotics/tdk_ws/build && $(MAKE) -f CMakeFiles/Makefile2 tutorial/CMakeFiles/PID_controller.dir/rule
-.PHONY : tutorial/CMakeFiles/PID_controller.dir/rule
+tutorial/CMakeFiles/navi_tracking.dir/rule:
+	cd /home/ditrobotics/tdk_ws/build && $(MAKE) -f CMakeFiles/Makefile2 tutorial/CMakeFiles/navi_tracking.dir/rule
+.PHONY : tutorial/CMakeFiles/navi_tracking.dir/rule
 
 # Convenience name for target.
-PID_controller: tutorial/CMakeFiles/PID_controller.dir/rule
+navi_tracking: tutorial/CMakeFiles/navi_tracking.dir/rule
 
-.PHONY : PID_controller
+.PHONY : navi_tracking
 
 # fast build rule for target.
-PID_controller/fast:
-	cd /home/ditrobotics/tdk_ws/build && $(MAKE) -f tutorial/CMakeFiles/PID_controller.dir/build.make tutorial/CMakeFiles/PID_controller.dir/build
-.PHONY : PID_controller/fast
-
-# Convenience name for target.
-tutorial/CMakeFiles/data_process.dir/rule:
-	cd /home/ditrobotics/tdk_ws/build && $(MAKE) -f CMakeFiles/Makefile2 tutorial/CMakeFiles/data_process.dir/rule
-.PHONY : tutorial/CMakeFiles/data_process.dir/rule
-
-# Convenience name for target.
-data_process: tutorial/CMakeFiles/data_process.dir/rule
-
-.PHONY : data_process
-
-# fast build rule for target.
-data_process/fast:
-	cd /home/ditrobotics/tdk_ws/build && $(MAKE) -f tutorial/CMakeFiles/data_process.dir/build.make tutorial/CMakeFiles/data_process.dir/build
-.PHONY : data_process/fast
+navi_tracking/fast:
+	cd /home/ditrobotics/tdk_ws/build && $(MAKE) -f tutorial/CMakeFiles/navi_tracking.dir/build.make tutorial/CMakeFiles/navi_tracking.dir/build
+.PHONY : navi_tracking/fast
 
 # Convenience name for target.
 tutorial/CMakeFiles/tf2_msgs_generate_messages_eus.dir/rule:
@@ -271,21 +256,6 @@ actionlib_generate_messages_lisp: tutorial/CMakeFiles/actionlib_generate_message
 actionlib_generate_messages_lisp/fast:
 	cd /home/ditrobotics/tdk_ws/build && $(MAKE) -f tutorial/CMakeFiles/actionlib_generate_messages_lisp.dir/build.make tutorial/CMakeFiles/actionlib_generate_messages_lisp.dir/build
 .PHONY : actionlib_generate_messages_lisp/fast
-
-# Convenience name for target.
-tutorial/CMakeFiles/tutorial.dir/rule:
-	cd /home/ditrobotics/tdk_ws/build && $(MAKE) -f CMakeFiles/Makefile2 tutorial/CMakeFiles/tutorial.dir/rule
-.PHONY : tutorial/CMakeFiles/tutorial.dir/rule
-
-# Convenience name for target.
-tutorial: tutorial/CMakeFiles/tutorial.dir/rule
-
-.PHONY : tutorial
-
-# fast build rule for target.
-tutorial/fast:
-	cd /home/ditrobotics/tdk_ws/build && $(MAKE) -f tutorial/CMakeFiles/tutorial.dir/build.make tutorial/CMakeFiles/tutorial.dir/build
-.PHONY : tutorial/fast
 
 # Convenience name for target.
 tutorial/CMakeFiles/nav_msgs_generate_messages_py.dir/rule:
@@ -692,59 +662,32 @@ nav_msgs_generate_messages_nodejs/fast:
 	cd /home/ditrobotics/tdk_ws/build && $(MAKE) -f tutorial/CMakeFiles/nav_msgs_generate_messages_nodejs.dir/build.make tutorial/CMakeFiles/nav_msgs_generate_messages_nodejs.dir/build
 .PHONY : nav_msgs_generate_messages_nodejs/fast
 
-src/PID_controller.o: src/PID_controller.cpp.o
+src/comm_vel.o: src/comm_vel.cpp.o
 
-.PHONY : src/PID_controller.o
-
-# target to build an object file
-src/PID_controller.cpp.o:
-	cd /home/ditrobotics/tdk_ws/build && $(MAKE) -f tutorial/CMakeFiles/PID_controller.dir/build.make tutorial/CMakeFiles/PID_controller.dir/src/PID_controller.cpp.o
-.PHONY : src/PID_controller.cpp.o
-
-src/PID_controller.i: src/PID_controller.cpp.i
-
-.PHONY : src/PID_controller.i
-
-# target to preprocess a source file
-src/PID_controller.cpp.i:
-	cd /home/ditrobotics/tdk_ws/build && $(MAKE) -f tutorial/CMakeFiles/PID_controller.dir/build.make tutorial/CMakeFiles/PID_controller.dir/src/PID_controller.cpp.i
-.PHONY : src/PID_controller.cpp.i
-
-src/PID_controller.s: src/PID_controller.cpp.s
-
-.PHONY : src/PID_controller.s
-
-# target to generate assembly for a file
-src/PID_controller.cpp.s:
-	cd /home/ditrobotics/tdk_ws/build && $(MAKE) -f tutorial/CMakeFiles/PID_controller.dir/build.make tutorial/CMakeFiles/PID_controller.dir/src/PID_controller.cpp.s
-.PHONY : src/PID_controller.cpp.s
-
-src/data_process.o: src/data_process.cpp.o
-
-.PHONY : src/data_process.o
+.PHONY : src/comm_vel.o
 
 # target to build an object file
-src/data_process.cpp.o:
-	cd /home/ditrobotics/tdk_ws/build && $(MAKE) -f tutorial/CMakeFiles/data_process.dir/build.make tutorial/CMakeFiles/data_process.dir/src/data_process.cpp.o
-.PHONY : src/data_process.cpp.o
+src/comm_vel.cpp.o:
+	cd /home/ditrobotics/tdk_ws/build && $(MAKE) -f tutorial/CMakeFiles/comm_vel.dir/build.make tutorial/CMakeFiles/comm_vel.dir/src/comm_vel.cpp.o
+.PHONY : src/comm_vel.cpp.o
 
-src/data_process.i: src/data_process.cpp.i
+src/comm_vel.i: src/comm_vel.cpp.i
 
-.PHONY : src/data_process.i
+.PHONY : src/comm_vel.i
 
 # target to preprocess a source file
-src/data_process.cpp.i:
-	cd /home/ditrobotics/tdk_ws/build && $(MAKE) -f tutorial/CMakeFiles/data_process.dir/build.make tutorial/CMakeFiles/data_process.dir/src/data_process.cpp.i
-.PHONY : src/data_process.cpp.i
+src/comm_vel.cpp.i:
+	cd /home/ditrobotics/tdk_ws/build && $(MAKE) -f tutorial/CMakeFiles/comm_vel.dir/build.make tutorial/CMakeFiles/comm_vel.dir/src/comm_vel.cpp.i
+.PHONY : src/comm_vel.cpp.i
 
-src/data_process.s: src/data_process.cpp.s
+src/comm_vel.s: src/comm_vel.cpp.s
 
-.PHONY : src/data_process.s
+.PHONY : src/comm_vel.s
 
 # target to generate assembly for a file
-src/data_process.cpp.s:
-	cd /home/ditrobotics/tdk_ws/build && $(MAKE) -f tutorial/CMakeFiles/data_process.dir/build.make tutorial/CMakeFiles/data_process.dir/src/data_process.cpp.s
-.PHONY : src/data_process.cpp.s
+src/comm_vel.cpp.s:
+	cd /home/ditrobotics/tdk_ws/build && $(MAKE) -f tutorial/CMakeFiles/comm_vel.dir/build.make tutorial/CMakeFiles/comm_vel.dir/src/comm_vel.cpp.s
+.PHONY : src/comm_vel.cpp.s
 
 src/debug.o: src/debug.cpp.o
 
@@ -773,59 +716,32 @@ src/debug.cpp.s:
 	cd /home/ditrobotics/tdk_ws/build && $(MAKE) -f tutorial/CMakeFiles/debug.dir/build.make tutorial/CMakeFiles/debug.dir/src/debug.cpp.s
 .PHONY : src/debug.cpp.s
 
-src/main.o: src/main.cpp.o
+src/navi_tracking.o: src/navi_tracking.cpp.o
 
-.PHONY : src/main.o
-
-# target to build an object file
-src/main.cpp.o:
-	cd /home/ditrobotics/tdk_ws/build && $(MAKE) -f tutorial/CMakeFiles/main.dir/build.make tutorial/CMakeFiles/main.dir/src/main.cpp.o
-.PHONY : src/main.cpp.o
-
-src/main.i: src/main.cpp.i
-
-.PHONY : src/main.i
-
-# target to preprocess a source file
-src/main.cpp.i:
-	cd /home/ditrobotics/tdk_ws/build && $(MAKE) -f tutorial/CMakeFiles/main.dir/build.make tutorial/CMakeFiles/main.dir/src/main.cpp.i
-.PHONY : src/main.cpp.i
-
-src/main.s: src/main.cpp.s
-
-.PHONY : src/main.s
-
-# target to generate assembly for a file
-src/main.cpp.s:
-	cd /home/ditrobotics/tdk_ws/build && $(MAKE) -f tutorial/CMakeFiles/main.dir/build.make tutorial/CMakeFiles/main.dir/src/main.cpp.s
-.PHONY : src/main.cpp.s
-
-src/tutorial.o: src/tutorial.cpp.o
-
-.PHONY : src/tutorial.o
+.PHONY : src/navi_tracking.o
 
 # target to build an object file
-src/tutorial.cpp.o:
-	cd /home/ditrobotics/tdk_ws/build && $(MAKE) -f tutorial/CMakeFiles/tutorial.dir/build.make tutorial/CMakeFiles/tutorial.dir/src/tutorial.cpp.o
-.PHONY : src/tutorial.cpp.o
+src/navi_tracking.cpp.o:
+	cd /home/ditrobotics/tdk_ws/build && $(MAKE) -f tutorial/CMakeFiles/navi_tracking.dir/build.make tutorial/CMakeFiles/navi_tracking.dir/src/navi_tracking.cpp.o
+.PHONY : src/navi_tracking.cpp.o
 
-src/tutorial.i: src/tutorial.cpp.i
+src/navi_tracking.i: src/navi_tracking.cpp.i
 
-.PHONY : src/tutorial.i
+.PHONY : src/navi_tracking.i
 
 # target to preprocess a source file
-src/tutorial.cpp.i:
-	cd /home/ditrobotics/tdk_ws/build && $(MAKE) -f tutorial/CMakeFiles/tutorial.dir/build.make tutorial/CMakeFiles/tutorial.dir/src/tutorial.cpp.i
-.PHONY : src/tutorial.cpp.i
+src/navi_tracking.cpp.i:
+	cd /home/ditrobotics/tdk_ws/build && $(MAKE) -f tutorial/CMakeFiles/navi_tracking.dir/build.make tutorial/CMakeFiles/navi_tracking.dir/src/navi_tracking.cpp.i
+.PHONY : src/navi_tracking.cpp.i
 
-src/tutorial.s: src/tutorial.cpp.s
+src/navi_tracking.s: src/navi_tracking.cpp.s
 
-.PHONY : src/tutorial.s
+.PHONY : src/navi_tracking.s
 
 # target to generate assembly for a file
-src/tutorial.cpp.s:
-	cd /home/ditrobotics/tdk_ws/build && $(MAKE) -f tutorial/CMakeFiles/tutorial.dir/build.make tutorial/CMakeFiles/tutorial.dir/src/tutorial.cpp.s
-.PHONY : src/tutorial.cpp.s
+src/navi_tracking.cpp.s:
+	cd /home/ditrobotics/tdk_ws/build && $(MAKE) -f tutorial/CMakeFiles/navi_tracking.dir/build.make tutorial/CMakeFiles/navi_tracking.dir/src/navi_tracking.cpp.s
+.PHONY : src/navi_tracking.cpp.s
 
 # Help Target
 help:
@@ -837,15 +753,13 @@ help:
 	@echo "... install"
 	@echo "... list_install_components"
 	@echo "... test"
-	@echo "... main"
-	@echo "... PID_controller"
+	@echo "... comm_vel"
+	@echo "... navi_tracking"
 	@echo "... rebuild_cache"
-	@echo "... data_process"
 	@echo "... tf2_msgs_generate_messages_eus"
 	@echo "... sensor_msgs_generate_messages_eus"
 	@echo "... debug"
 	@echo "... actionlib_generate_messages_lisp"
-	@echo "... tutorial"
 	@echo "... nav_msgs_generate_messages_py"
 	@echo "... sensor_msgs_generate_messages_py"
 	@echo "... edit_cache"
@@ -875,21 +789,15 @@ help:
 	@echo "... nav_msgs_generate_messages_eus"
 	@echo "... actionlib_msgs_generate_messages_eus"
 	@echo "... nav_msgs_generate_messages_nodejs"
-	@echo "... src/PID_controller.o"
-	@echo "... src/PID_controller.i"
-	@echo "... src/PID_controller.s"
-	@echo "... src/data_process.o"
-	@echo "... src/data_process.i"
-	@echo "... src/data_process.s"
+	@echo "... src/comm_vel.o"
+	@echo "... src/comm_vel.i"
+	@echo "... src/comm_vel.s"
 	@echo "... src/debug.o"
 	@echo "... src/debug.i"
 	@echo "... src/debug.s"
-	@echo "... src/main.o"
-	@echo "... src/main.i"
-	@echo "... src/main.s"
-	@echo "... src/tutorial.o"
-	@echo "... src/tutorial.i"
-	@echo "... src/tutorial.s"
+	@echo "... src/navi_tracking.o"
+	@echo "... src/navi_tracking.i"
+	@echo "... src/navi_tracking.s"
 .PHONY : help
 
 

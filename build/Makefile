@@ -766,43 +766,30 @@ rosserial_server_socket_node/fast:
 .PHONY : rosserial_server_socket_node/fast
 
 #=============================================================================
-# Target rules for targets named main
+# Target rules for targets named comm_vel
 
 # Build rule for target.
-main: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 main
-.PHONY : main
+comm_vel: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 comm_vel
+.PHONY : comm_vel
 
 # fast build rule for target.
-main/fast:
-	$(MAKE) -f tutorial/CMakeFiles/main.dir/build.make tutorial/CMakeFiles/main.dir/build
-.PHONY : main/fast
+comm_vel/fast:
+	$(MAKE) -f tutorial/CMakeFiles/comm_vel.dir/build.make tutorial/CMakeFiles/comm_vel.dir/build
+.PHONY : comm_vel/fast
 
 #=============================================================================
-# Target rules for targets named PID_controller
+# Target rules for targets named navi_tracking
 
 # Build rule for target.
-PID_controller: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 PID_controller
-.PHONY : PID_controller
+navi_tracking: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 navi_tracking
+.PHONY : navi_tracking
 
 # fast build rule for target.
-PID_controller/fast:
-	$(MAKE) -f tutorial/CMakeFiles/PID_controller.dir/build.make tutorial/CMakeFiles/PID_controller.dir/build
-.PHONY : PID_controller/fast
-
-#=============================================================================
-# Target rules for targets named data_process
-
-# Build rule for target.
-data_process: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 data_process
-.PHONY : data_process
-
-# fast build rule for target.
-data_process/fast:
-	$(MAKE) -f tutorial/CMakeFiles/data_process.dir/build.make tutorial/CMakeFiles/data_process.dir/build
-.PHONY : data_process/fast
+navi_tracking/fast:
+	$(MAKE) -f tutorial/CMakeFiles/navi_tracking.dir/build.make tutorial/CMakeFiles/navi_tracking.dir/build
+.PHONY : navi_tracking/fast
 
 #=============================================================================
 # Target rules for targets named tf2_msgs_generate_messages_eus
@@ -855,19 +842,6 @@ actionlib_generate_messages_lisp: cmake_check_build_system
 actionlib_generate_messages_lisp/fast:
 	$(MAKE) -f tutorial/CMakeFiles/actionlib_generate_messages_lisp.dir/build.make tutorial/CMakeFiles/actionlib_generate_messages_lisp.dir/build
 .PHONY : actionlib_generate_messages_lisp/fast
-
-#=============================================================================
-# Target rules for targets named tutorial
-
-# Build rule for target.
-tutorial: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 tutorial
-.PHONY : tutorial
-
-# fast build rule for target.
-tutorial/fast:
-	$(MAKE) -f tutorial/CMakeFiles/tutorial.dir/build.make tutorial/CMakeFiles/tutorial.dir/build
-.PHONY : tutorial/fast
 
 #=============================================================================
 # Target rules for targets named nav_msgs_generate_messages_py
@@ -1279,14 +1253,12 @@ help:
 	@echo "... topic_tools_generate_messages_nodejs"
 	@echo "... rosserial_server_lookup"
 	@echo "... rosserial_server_socket_node"
-	@echo "... main"
-	@echo "... PID_controller"
-	@echo "... data_process"
+	@echo "... comm_vel"
+	@echo "... navi_tracking"
 	@echo "... tf2_msgs_generate_messages_eus"
 	@echo "... sensor_msgs_generate_messages_eus"
 	@echo "... debug"
 	@echo "... actionlib_generate_messages_lisp"
-	@echo "... tutorial"
 	@echo "... nav_msgs_generate_messages_py"
 	@echo "... sensor_msgs_generate_messages_py"
 	@echo "... tf_generate_messages_lisp"

@@ -551,6 +551,33 @@ src/map.cpp.s:
 	cd /home/ditrobotics/tdk_ws/build && $(MAKE) -f main_func/CMakeFiles/run.dir/build.make main_func/CMakeFiles/run.dir/src/map.cpp.s
 .PHONY : src/map.cpp.s
 
+src/odom.o: src/odom.cpp.o
+
+.PHONY : src/odom.o
+
+# target to build an object file
+src/odom.cpp.o:
+	cd /home/ditrobotics/tdk_ws/build && $(MAKE) -f main_func/CMakeFiles/run.dir/build.make main_func/CMakeFiles/run.dir/src/odom.cpp.o
+.PHONY : src/odom.cpp.o
+
+src/odom.i: src/odom.cpp.i
+
+.PHONY : src/odom.i
+
+# target to preprocess a source file
+src/odom.cpp.i:
+	cd /home/ditrobotics/tdk_ws/build && $(MAKE) -f main_func/CMakeFiles/run.dir/build.make main_func/CMakeFiles/run.dir/src/odom.cpp.i
+.PHONY : src/odom.cpp.i
+
+src/odom.s: src/odom.cpp.s
+
+.PHONY : src/odom.s
+
+# target to generate assembly for a file
+src/odom.cpp.s:
+	cd /home/ditrobotics/tdk_ws/build && $(MAKE) -f main_func/CMakeFiles/run.dir/build.make main_func/CMakeFiles/run.dir/src/odom.cpp.s
+.PHONY : src/odom.cpp.s
+
 src/pub_num.o: src/pub_num.cpp.o
 
 .PHONY : src/pub_num.o
@@ -646,6 +673,9 @@ help:
 	@echo "... src/map.o"
 	@echo "... src/map.i"
 	@echo "... src/map.s"
+	@echo "... src/odom.o"
+	@echo "... src/odom.i"
+	@echo "... src/odom.s"
 	@echo "... src/pub_num.o"
 	@echo "... src/pub_num.i"
 	@echo "... src/pub_num.s"
