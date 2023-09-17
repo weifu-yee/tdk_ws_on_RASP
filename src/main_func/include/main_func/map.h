@@ -17,7 +17,7 @@
 #define initBuildEdgeFilePath "/home/ditrobotics/tdk_ws/src/main_func/params/initBuildEdge.yaml"
 #define num_of_nodes 16
 #define tolerence 6.0
-#define decelerationZone 10.0
+#define decelerationZone 0.5
 
 using namespace std;
 

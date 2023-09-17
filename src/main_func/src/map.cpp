@@ -75,7 +75,7 @@ int MAP::dis_of_Odom_n_ToGo(int u){
     double uy = MAP::node[u].second.second;
     double x_diff = ux - ODOM::odometry.x;
     double y_diff = uy - ODOM::odometry.y;
-    return x_diff + y_diff;
+    return (x_diff + y_diff);
 }
 bool MAP::check_onNode(int u){
     return dis_of_Odom_n_ToGo(u) < tolerence;

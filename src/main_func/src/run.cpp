@@ -8,7 +8,15 @@ bool isNodeLast = false;
 bool onNode = false;
 int nodeToGo;
 double xNow, xLast = -1;
-// ODOM::Odometry ODOM::odometry(60, 180, 0);
+
+ros::Publisher orientation_pub;
+ros::Subscriber node_sub;
+ros::Publisher cam_pub;
+ros::Subscriber number_sub;
+ros::Subscriber odom_sub;
+
+std_msgs::Int8 orientation;
+std_msgs::Int8 open_o_close;
 
 void firstLevel(ros::NodeHandle& nh);
 void nodeCallback(const std_msgs::Bool::ConstPtr& is_node){
@@ -28,17 +36,8 @@ void numberCallback(const std_msgs::Int32MultiArray::ConstPtr& the_numbers){
 }
 void odomCallback(const geometry_msgs::Twist::ConstPtr& ins_vel){
     odometry.update(ins_vel);
-    ROS_INFO("(%.4lf, %.4lf, %.4lf)",odometry.x, odometry.y, odometry.theta);
+    ROS_INFO("(%.4lf, %.4lf, %.4lf) to: %d",odometry.x, odometry.y, odometry.theta, orientation.data);
 }
-
-ros::Publisher orientation_pub;
-ros::Subscriber node_sub;
-ros::Publisher cam_pub;
-ros::Subscriber number_sub;
-ros::Subscriber odom_sub;
-
-std_msgs::Int8 orientation;
-std_msgs::Int8 open_o_close;
 
 int main(int argc, char **argv){
     ros::init(argc, argv, "main_func");
@@ -47,7 +46,8 @@ int main(int argc, char **argv){
     node_sub = nh.subscribe("/node_detect",1,nodeCallback);
     cam_pub = nh.advertise<std_msgs::Int8>("/cmd_cam", 1);
     number_sub = nh.subscribe("/numbers",1,numberCallback);
-    odom_sub = nh.subscribe("/realspeed",1,odomCallback);
+    odom_sub = nh.subscribe("/cmd_vel",1,odomCallback);     //fake odom
+    // odom_sub = nh.subscribe("/realspeed",1,odomCallback);
 
     MAP::buildNode();
     MAP::initBuildEdge();
@@ -60,13 +60,12 @@ int main(int argc, char **argv){
     ROS_INFO("(%lf, %lf, %lf)",odometry.x, odometry.y, odometry.theta);
     ROS_INFO("go ahead: %d",orientation.data);
 
+    firstLevel(nh);
+    ROS_INFO("pass 1st Level!!");
     while(nh.ok()){
-        firstLevel(nh);
-        ROS_INFO("pass 1st Level!!");
-        break;
+        orientation.data = -1;
+        orientation_pub.publish(orientation);
     }
-    orientation.data = -1;
-    orientation_pub.publish(orientation);
     return 0;
 }
 
@@ -77,11 +76,11 @@ void firstLevel(ros::NodeHandle& nh){
         ros::spinOnce();
 
         if(onNode){
-            if(!MAP::check_onNode(nodeToGo)){
-                ROS_INFO("Node misjudgment!!");
-                onNode = false;
-                continue;
-            }
+            // if(!MAP::check_onNode(nodeToGo)){
+            //     ROS_INFO("Node misjudgment!!");
+            //     onNode = false;
+            //     continue;
+            // }
             
             if(nodeNow == -1)   CAM::capture_n_detect(1, cam_pub, orientation_pub, nh);
             nodeNow = nodeToGo;
@@ -108,6 +107,11 @@ void firstLevel(ros::NodeHandle& nh){
             nodeToGo = max;
 
             orientation.data = MAP::cmd_ori(nodeToGo, nodeNow);
+            if(nodeNow == 1 && nodeToGo == 4
+            || nodeNow == 2 && nodeToGo == 5
+            || nodeNow == 3 && nodeToGo == 6){
+                orientation.data = 6;
+            }
             MAP::eraseEdge(nodeToGo, nodeNow);
             // nodeNow = nodeToGo;
             onNode = false;            
