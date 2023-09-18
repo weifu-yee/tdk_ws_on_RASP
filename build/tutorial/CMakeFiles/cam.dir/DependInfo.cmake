@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/ditrobotics/tdk_ws/src/tutorial/src/debug.cpp" "/home/ditrobotics/tdk_ws/build/tutorial/CMakeFiles/debug.dir/src/debug.cpp.o"
+  "/home/ditrobotics/tdk_ws/src/tutorial/src/cam.cpp" "/home/ditrobotics/tdk_ws/build/tutorial/CMakeFiles/cam.dir/src/cam.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

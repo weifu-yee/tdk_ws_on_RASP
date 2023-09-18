@@ -818,6 +818,19 @@ sensor_msgs_generate_messages_eus/fast:
 .PHONY : sensor_msgs_generate_messages_eus/fast
 
 #=============================================================================
+# Target rules for targets named cam
+
+# Build rule for target.
+cam: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 cam
+.PHONY : cam
+
+# fast build rule for target.
+cam/fast:
+	$(MAKE) -f tutorial/CMakeFiles/cam.dir/build.make tutorial/CMakeFiles/cam.dir/build
+.PHONY : cam/fast
+
+#=============================================================================
 # Target rules for targets named debug
 
 # Build rule for target.
@@ -1257,6 +1270,7 @@ help:
 	@echo "... navi_tracking"
 	@echo "... tf2_msgs_generate_messages_eus"
 	@echo "... sensor_msgs_generate_messages_eus"
+	@echo "... cam"
 	@echo "... debug"
 	@echo "... actionlib_generate_messages_lisp"
 	@echo "... nav_msgs_generate_messages_py"

@@ -239,6 +239,7 @@ rosserial_server/clean: rosserial_server/CMakeFiles/rosserial_server_socket_node
 # Recursive "all" directory target.
 tutorial/all: tutorial/CMakeFiles/comm_vel.dir/all
 tutorial/all: tutorial/CMakeFiles/navi_tracking.dir/all
+tutorial/all: tutorial/CMakeFiles/cam.dir/all
 tutorial/all: tutorial/CMakeFiles/debug.dir/all
 
 .PHONY : tutorial/all
@@ -253,6 +254,7 @@ tutorial/clean: tutorial/CMakeFiles/comm_vel.dir/clean
 tutorial/clean: tutorial/CMakeFiles/navi_tracking.dir/clean
 tutorial/clean: tutorial/CMakeFiles/tf2_msgs_generate_messages_eus.dir/clean
 tutorial/clean: tutorial/CMakeFiles/sensor_msgs_generate_messages_eus.dir/clean
+tutorial/clean: tutorial/CMakeFiles/cam.dir/clean
 tutorial/clean: tutorial/CMakeFiles/debug.dir/clean
 tutorial/clean: tutorial/CMakeFiles/actionlib_generate_messages_lisp.dir/clean
 tutorial/clean: tutorial/CMakeFiles/nav_msgs_generate_messages_py.dir/clean
@@ -428,7 +430,7 @@ gtest/googlemock/CMakeFiles/gmock_main.dir/all: gtest/googlemock/CMakeFiles/gmoc
 gtest/googlemock/CMakeFiles/gmock_main.dir/all: gtest/googletest/CMakeFiles/gtest.dir/all
 	$(MAKE) -f gtest/googlemock/CMakeFiles/gmock_main.dir/build.make gtest/googlemock/CMakeFiles/gmock_main.dir/depend
 	$(MAKE) -f gtest/googlemock/CMakeFiles/gmock_main.dir/build.make gtest/googlemock/CMakeFiles/gmock_main.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ditrobotics/tdk_ws/build/CMakeFiles --progress-num=7,8 "Built target gmock_main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ditrobotics/tdk_ws/build/CMakeFiles --progress-num=9,10 "Built target gmock_main"
 .PHONY : gtest/googlemock/CMakeFiles/gmock_main.dir/all
 
 # Build rule for subdir invocation for target.
@@ -455,7 +457,7 @@ gtest/googlemock/CMakeFiles/gmock_main.dir/clean:
 gtest/googlemock/CMakeFiles/gmock.dir/all: gtest/googletest/CMakeFiles/gtest.dir/all
 	$(MAKE) -f gtest/googlemock/CMakeFiles/gmock.dir/build.make gtest/googlemock/CMakeFiles/gmock.dir/depend
 	$(MAKE) -f gtest/googlemock/CMakeFiles/gmock.dir/build.make gtest/googlemock/CMakeFiles/gmock.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ditrobotics/tdk_ws/build/CMakeFiles --progress-num=5,6 "Built target gmock"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ditrobotics/tdk_ws/build/CMakeFiles --progress-num=7,8 "Built target gmock"
 .PHONY : gtest/googlemock/CMakeFiles/gmock.dir/all
 
 # Build rule for subdir invocation for target.
@@ -482,7 +484,7 @@ gtest/googlemock/CMakeFiles/gmock.dir/clean:
 gtest/googletest/CMakeFiles/gtest_main.dir/all: gtest/googletest/CMakeFiles/gtest.dir/all
 	$(MAKE) -f gtest/googletest/CMakeFiles/gtest_main.dir/build.make gtest/googletest/CMakeFiles/gtest_main.dir/depend
 	$(MAKE) -f gtest/googletest/CMakeFiles/gtest_main.dir/build.make gtest/googletest/CMakeFiles/gtest_main.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ditrobotics/tdk_ws/build/CMakeFiles --progress-num=11,12 "Built target gtest_main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ditrobotics/tdk_ws/build/CMakeFiles --progress-num=13,14 "Built target gtest_main"
 .PHONY : gtest/googletest/CMakeFiles/gtest_main.dir/all
 
 # Build rule for subdir invocation for target.
@@ -509,7 +511,7 @@ gtest/googletest/CMakeFiles/gtest_main.dir/clean:
 gtest/googletest/CMakeFiles/gtest.dir/all:
 	$(MAKE) -f gtest/googletest/CMakeFiles/gtest.dir/build.make gtest/googletest/CMakeFiles/gtest.dir/depend
 	$(MAKE) -f gtest/googletest/CMakeFiles/gtest.dir/build.make gtest/googletest/CMakeFiles/gtest.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ditrobotics/tdk_ws/build/CMakeFiles --progress-num=9,10 "Built target gtest"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ditrobotics/tdk_ws/build/CMakeFiles --progress-num=11,12 "Built target gtest"
 .PHONY : gtest/googletest/CMakeFiles/gtest.dir/all
 
 # Build rule for subdir invocation for target.
@@ -582,7 +584,7 @@ main_func/CMakeFiles/run.dir/all: main_func/CMakeFiles/roscpp_generate_messages_
 main_func/CMakeFiles/run.dir/all: main_func/CMakeFiles/std_msgs_generate_messages_py.dir/all
 	$(MAKE) -f main_func/CMakeFiles/run.dir/build.make main_func/CMakeFiles/run.dir/depend
 	$(MAKE) -f main_func/CMakeFiles/run.dir/build.make main_func/CMakeFiles/run.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ditrobotics/tdk_ws/build/CMakeFiles --progress-num=25,26,27,28,29 "Built target run"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ditrobotics/tdk_ws/build/CMakeFiles --progress-num=27,28,29,30,31 "Built target run"
 .PHONY : main_func/CMakeFiles/run.dir/all
 
 # Build rule for subdir invocation for target.
@@ -655,7 +657,7 @@ main_func/CMakeFiles/pub_num.dir/all: main_func/CMakeFiles/roscpp_generate_messa
 main_func/CMakeFiles/pub_num.dir/all: main_func/CMakeFiles/std_msgs_generate_messages_py.dir/all
 	$(MAKE) -f main_func/CMakeFiles/pub_num.dir/build.make main_func/CMakeFiles/pub_num.dir/depend
 	$(MAKE) -f main_func/CMakeFiles/pub_num.dir/build.make main_func/CMakeFiles/pub_num.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ditrobotics/tdk_ws/build/CMakeFiles --progress-num=15,16 "Built target pub_num"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ditrobotics/tdk_ws/build/CMakeFiles --progress-num=17,18 "Built target pub_num"
 .PHONY : main_func/CMakeFiles/pub_num.dir/all
 
 # Build rule for subdir invocation for target.
@@ -1220,7 +1222,7 @@ rosserial_server/CMakeFiles/rosserial_server_udp_socket_node.dir/all: rosserial_
 rosserial_server/CMakeFiles/rosserial_server_udp_socket_node.dir/all: rosserial_server/CMakeFiles/rosserial_server_lookup.dir/all
 	$(MAKE) -f rosserial_server/CMakeFiles/rosserial_server_udp_socket_node.dir/build.make rosserial_server/CMakeFiles/rosserial_server_udp_socket_node.dir/depend
 	$(MAKE) -f rosserial_server/CMakeFiles/rosserial_server_udp_socket_node.dir/build.make rosserial_server/CMakeFiles/rosserial_server_udp_socket_node.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ditrobotics/tdk_ws/build/CMakeFiles --progress-num=23,24 "Built target rosserial_server_udp_socket_node"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ditrobotics/tdk_ws/build/CMakeFiles --progress-num=25,26 "Built target rosserial_server_udp_socket_node"
 .PHONY : rosserial_server/CMakeFiles/rosserial_server_udp_socket_node.dir/all
 
 # Build rule for subdir invocation for target.
@@ -1488,7 +1490,7 @@ rosserial_server/CMakeFiles/rosserial_server_serial_node.dir/all: rosserial_serv
 rosserial_server/CMakeFiles/rosserial_server_serial_node.dir/all: rosserial_server/CMakeFiles/rosserial_server_lookup.dir/all
 	$(MAKE) -f rosserial_server/CMakeFiles/rosserial_server_serial_node.dir/build.make rosserial_server/CMakeFiles/rosserial_server_serial_node.dir/depend
 	$(MAKE) -f rosserial_server/CMakeFiles/rosserial_server_serial_node.dir/build.make rosserial_server/CMakeFiles/rosserial_server_serial_node.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ditrobotics/tdk_ws/build/CMakeFiles --progress-num=19,20 "Built target rosserial_server_serial_node"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ditrobotics/tdk_ws/build/CMakeFiles --progress-num=21,22 "Built target rosserial_server_serial_node"
 .PHONY : rosserial_server/CMakeFiles/rosserial_server_serial_node.dir/all
 
 # Build rule for subdir invocation for target.
@@ -1569,7 +1571,7 @@ rosserial_server/CMakeFiles/topic_tools_generate_messages_nodejs.dir/clean:
 rosserial_server/CMakeFiles/rosserial_server_lookup.dir/all:
 	$(MAKE) -f rosserial_server/CMakeFiles/rosserial_server_lookup.dir/build.make rosserial_server/CMakeFiles/rosserial_server_lookup.dir/depend
 	$(MAKE) -f rosserial_server/CMakeFiles/rosserial_server_lookup.dir/build.make rosserial_server/CMakeFiles/rosserial_server_lookup.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ditrobotics/tdk_ws/build/CMakeFiles --progress-num=17,18 "Built target rosserial_server_lookup"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ditrobotics/tdk_ws/build/CMakeFiles --progress-num=19,20 "Built target rosserial_server_lookup"
 .PHONY : rosserial_server/CMakeFiles/rosserial_server_lookup.dir/all
 
 # Build rule for subdir invocation for target.
@@ -1621,7 +1623,7 @@ rosserial_server/CMakeFiles/rosserial_server_socket_node.dir/all: rosserial_serv
 rosserial_server/CMakeFiles/rosserial_server_socket_node.dir/all: rosserial_server/CMakeFiles/rosserial_server_lookup.dir/all
 	$(MAKE) -f rosserial_server/CMakeFiles/rosserial_server_socket_node.dir/build.make rosserial_server/CMakeFiles/rosserial_server_socket_node.dir/depend
 	$(MAKE) -f rosserial_server/CMakeFiles/rosserial_server_socket_node.dir/build.make rosserial_server/CMakeFiles/rosserial_server_socket_node.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ditrobotics/tdk_ws/build/CMakeFiles --progress-num=21,22 "Built target rosserial_server_socket_node"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ditrobotics/tdk_ws/build/CMakeFiles --progress-num=23,24 "Built target rosserial_server_socket_node"
 .PHONY : rosserial_server/CMakeFiles/rosserial_server_socket_node.dir/all
 
 # Build rule for subdir invocation for target.
@@ -1648,7 +1650,7 @@ rosserial_server/CMakeFiles/rosserial_server_socket_node.dir/clean:
 tutorial/CMakeFiles/comm_vel.dir/all:
 	$(MAKE) -f tutorial/CMakeFiles/comm_vel.dir/build.make tutorial/CMakeFiles/comm_vel.dir/depend
 	$(MAKE) -f tutorial/CMakeFiles/comm_vel.dir/build.make tutorial/CMakeFiles/comm_vel.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ditrobotics/tdk_ws/build/CMakeFiles --progress-num=1,2 "Built target comm_vel"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ditrobotics/tdk_ws/build/CMakeFiles --progress-num=3,4 "Built target comm_vel"
 .PHONY : tutorial/CMakeFiles/comm_vel.dir/all
 
 # Build rule for subdir invocation for target.
@@ -1675,7 +1677,7 @@ tutorial/CMakeFiles/comm_vel.dir/clean:
 tutorial/CMakeFiles/navi_tracking.dir/all:
 	$(MAKE) -f tutorial/CMakeFiles/navi_tracking.dir/build.make tutorial/CMakeFiles/navi_tracking.dir/depend
 	$(MAKE) -f tutorial/CMakeFiles/navi_tracking.dir/build.make tutorial/CMakeFiles/navi_tracking.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ditrobotics/tdk_ws/build/CMakeFiles --progress-num=13,14 "Built target navi_tracking"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ditrobotics/tdk_ws/build/CMakeFiles --progress-num=15,16 "Built target navi_tracking"
 .PHONY : tutorial/CMakeFiles/navi_tracking.dir/all
 
 # Build rule for subdir invocation for target.
@@ -1750,13 +1752,40 @@ tutorial/CMakeFiles/sensor_msgs_generate_messages_eus.dir/clean:
 .PHONY : tutorial/CMakeFiles/sensor_msgs_generate_messages_eus.dir/clean
 
 #=============================================================================
+# Target rules for target tutorial/CMakeFiles/cam.dir
+
+# All Build rule for target.
+tutorial/CMakeFiles/cam.dir/all:
+	$(MAKE) -f tutorial/CMakeFiles/cam.dir/build.make tutorial/CMakeFiles/cam.dir/depend
+	$(MAKE) -f tutorial/CMakeFiles/cam.dir/build.make tutorial/CMakeFiles/cam.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ditrobotics/tdk_ws/build/CMakeFiles --progress-num=1,2 "Built target cam"
+.PHONY : tutorial/CMakeFiles/cam.dir/all
+
+# Build rule for subdir invocation for target.
+tutorial/CMakeFiles/cam.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ditrobotics/tdk_ws/build/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 tutorial/CMakeFiles/cam.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ditrobotics/tdk_ws/build/CMakeFiles 0
+.PHONY : tutorial/CMakeFiles/cam.dir/rule
+
+# Convenience name for target.
+cam: tutorial/CMakeFiles/cam.dir/rule
+
+.PHONY : cam
+
+# clean rule for target.
+tutorial/CMakeFiles/cam.dir/clean:
+	$(MAKE) -f tutorial/CMakeFiles/cam.dir/build.make tutorial/CMakeFiles/cam.dir/clean
+.PHONY : tutorial/CMakeFiles/cam.dir/clean
+
+#=============================================================================
 # Target rules for target tutorial/CMakeFiles/debug.dir
 
 # All Build rule for target.
 tutorial/CMakeFiles/debug.dir/all:
 	$(MAKE) -f tutorial/CMakeFiles/debug.dir/build.make tutorial/CMakeFiles/debug.dir/depend
 	$(MAKE) -f tutorial/CMakeFiles/debug.dir/build.make tutorial/CMakeFiles/debug.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ditrobotics/tdk_ws/build/CMakeFiles --progress-num=3,4 "Built target debug"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ditrobotics/tdk_ws/build/CMakeFiles --progress-num=5,6 "Built target debug"
 .PHONY : tutorial/CMakeFiles/debug.dir/all
 
 # Build rule for subdir invocation for target.

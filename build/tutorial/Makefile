@@ -228,6 +228,21 @@ sensor_msgs_generate_messages_eus/fast:
 .PHONY : sensor_msgs_generate_messages_eus/fast
 
 # Convenience name for target.
+tutorial/CMakeFiles/cam.dir/rule:
+	cd /home/ditrobotics/tdk_ws/build && $(MAKE) -f CMakeFiles/Makefile2 tutorial/CMakeFiles/cam.dir/rule
+.PHONY : tutorial/CMakeFiles/cam.dir/rule
+
+# Convenience name for target.
+cam: tutorial/CMakeFiles/cam.dir/rule
+
+.PHONY : cam
+
+# fast build rule for target.
+cam/fast:
+	cd /home/ditrobotics/tdk_ws/build && $(MAKE) -f tutorial/CMakeFiles/cam.dir/build.make tutorial/CMakeFiles/cam.dir/build
+.PHONY : cam/fast
+
+# Convenience name for target.
 tutorial/CMakeFiles/debug.dir/rule:
 	cd /home/ditrobotics/tdk_ws/build && $(MAKE) -f CMakeFiles/Makefile2 tutorial/CMakeFiles/debug.dir/rule
 .PHONY : tutorial/CMakeFiles/debug.dir/rule
@@ -662,6 +677,33 @@ nav_msgs_generate_messages_nodejs/fast:
 	cd /home/ditrobotics/tdk_ws/build && $(MAKE) -f tutorial/CMakeFiles/nav_msgs_generate_messages_nodejs.dir/build.make tutorial/CMakeFiles/nav_msgs_generate_messages_nodejs.dir/build
 .PHONY : nav_msgs_generate_messages_nodejs/fast
 
+src/cam.o: src/cam.cpp.o
+
+.PHONY : src/cam.o
+
+# target to build an object file
+src/cam.cpp.o:
+	cd /home/ditrobotics/tdk_ws/build && $(MAKE) -f tutorial/CMakeFiles/cam.dir/build.make tutorial/CMakeFiles/cam.dir/src/cam.cpp.o
+.PHONY : src/cam.cpp.o
+
+src/cam.i: src/cam.cpp.i
+
+.PHONY : src/cam.i
+
+# target to preprocess a source file
+src/cam.cpp.i:
+	cd /home/ditrobotics/tdk_ws/build && $(MAKE) -f tutorial/CMakeFiles/cam.dir/build.make tutorial/CMakeFiles/cam.dir/src/cam.cpp.i
+.PHONY : src/cam.cpp.i
+
+src/cam.s: src/cam.cpp.s
+
+.PHONY : src/cam.s
+
+# target to generate assembly for a file
+src/cam.cpp.s:
+	cd /home/ditrobotics/tdk_ws/build && $(MAKE) -f tutorial/CMakeFiles/cam.dir/build.make tutorial/CMakeFiles/cam.dir/src/cam.cpp.s
+.PHONY : src/cam.cpp.s
+
 src/comm_vel.o: src/comm_vel.cpp.o
 
 .PHONY : src/comm_vel.o
@@ -758,6 +800,7 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... tf2_msgs_generate_messages_eus"
 	@echo "... sensor_msgs_generate_messages_eus"
+	@echo "... cam"
 	@echo "... debug"
 	@echo "... actionlib_generate_messages_lisp"
 	@echo "... nav_msgs_generate_messages_py"
@@ -789,6 +832,9 @@ help:
 	@echo "... nav_msgs_generate_messages_eus"
 	@echo "... actionlib_msgs_generate_messages_eus"
 	@echo "... nav_msgs_generate_messages_nodejs"
+	@echo "... src/cam.o"
+	@echo "... src/cam.i"
+	@echo "... src/cam.s"
 	@echo "... src/comm_vel.o"
 	@echo "... src/comm_vel.i"
 	@echo "... src/comm_vel.s"

@@ -18,7 +18,10 @@ ros::Subscriber odom_sub;
 std_msgs::Int8 orientation;
 std_msgs::Int8 open_o_close;
 
-void firstLevel(ros::NodeHandle& nh);
+namespace SCRIPT{
+    void firstLevel(ros::NodeHandle& nh);
+    void dustBox(ros::NodeHandle& nh);
+}
 void nodeCallback(const std_msgs::Bool::ConstPtr& is_node){
     bool isNode = is_node->data;
 
@@ -60,7 +63,7 @@ int main(int argc, char **argv){
     ROS_INFO("(%lf, %lf, %lf)",odometry.x, odometry.y, odometry.theta);
     ROS_INFO("go ahead: %d",orientation.data);
 
-    firstLevel(nh);
+    SCRIPT::firstLevel(nh);
     ROS_INFO("pass 1st Level!!");
     while(nh.ok()){
         orientation.data = -1;
@@ -69,7 +72,7 @@ int main(int argc, char **argv){
     return 0;
 }
 
-void firstLevel(ros::NodeHandle& nh){
+void SCRIPT::firstLevel(ros::NodeHandle& nh){
     ros::Rate rate(20);
     while(nh.ok() && MAP::nodeNow < 13){
         cam_pub.publish(open_o_close);
@@ -124,5 +127,11 @@ void firstLevel(ros::NodeHandle& nh){
         if(MAP::dis_of_Odom_n_ToGo(nodeToGo) < decelerationZone)    orientation.data = -2;
         orientation_pub.publish(orientation);
         rate.sleep();
+    }
+}
+void SCRIPT::dustBox(ros::NodeHandle& nh){
+    ros::Rate rate(20);
+    while(nh.ok()){
+        
     }
 }

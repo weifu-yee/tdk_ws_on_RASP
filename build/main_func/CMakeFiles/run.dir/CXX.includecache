@@ -42,19 +42,11 @@ geometry_msgs/Twist.h
 math.h
 -
 
-/home/ditrobotics/tdk_ws/src/main_func/src/cam.cpp
-cam.h
-/home/ditrobotics/tdk_ws/src/main_func/src/cam.h
-
 /home/ditrobotics/tdk_ws/src/main_func/src/map.cpp
 map.h
 /home/ditrobotics/tdk_ws/src/main_func/src/map.h
 cam.h
 /home/ditrobotics/tdk_ws/src/main_func/src/cam.h
-odom.h
-/home/ditrobotics/tdk_ws/src/main_func/src/odom.h
-
-/home/ditrobotics/tdk_ws/src/main_func/src/odom.cpp
 odom.h
 /home/ditrobotics/tdk_ws/src/main_func/src/odom.h
 

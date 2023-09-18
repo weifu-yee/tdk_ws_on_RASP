@@ -4,7 +4,7 @@
 #include "map.h"
 
 namespace SCRIPT{
-
+    void dustBox();
 }
 using namespace SCRIPT;
 
